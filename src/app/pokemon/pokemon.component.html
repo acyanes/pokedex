@@ -1,1 +1,13 @@
-<p>pokemon works!</p>
+<h2>Shiny Pokedex</h2>
+<div>
+  <span *ngFor="let pokemon of allPokemon">
+    <button type="button">
+      <div>{{ pokemon.id }}</div>
+      <div>{{ pokemon.name }}</div>
+      <img [src]="pokemon.sprites.front_shiny" />
+      <span *ngFor="let attr of pokemon.types">
+        <div>{{ attr.type.name }}</div>
+      </span>
+    </button>
+  </span>
+</div>

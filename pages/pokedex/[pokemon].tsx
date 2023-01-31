@@ -1,6 +1,7 @@
 import useFetchPokemonStats from "@/hooks/useFetchPokemonStats";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import BarGraph from "@/components/BarGraph";
 
 const PokemonPage = () => {
   const { query } = useRouter();
@@ -11,25 +12,19 @@ const PokemonPage = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return null;
 
-  console.log(data);
-
   return (
-    <div>
+    <div className="flex justify-center">
       {data && (
         <div>
           <Image
             src={data.sprites.other.dream_world.front_default}
             alt="pokemon-image"
-            width={250}
+            width={500}
             height={250}
-            className="m-auto bg-gray-100"
+            className="bg-gray-100 mb-8 w-auto h-auto"
           />
-          <div>height: {data.height}</div>
-          <div>weight: {data.weight}</div>
-          <div>stats</div>
-          {data.stats.map((stat: any) => (
-            <li>{stat.base_stat}</li>
-          ))}
+          <span className="font-bold text-2xl font-mono mb-4">Stats</span>
+          <BarGraph stats={data.stats} />
         </div>
       )}
     </div>

@@ -1,4 +1,5 @@
 import Pokemon from "@/components/Pokemon";
+import Search from "@/components/Search";
 import Head from "next/head";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
         <title>Pokemon App</title>
       </Head>
       <main>
+        <Search />
         <Pokemon />
       </main>
     </>

@@ -32,8 +32,6 @@ const CardList = ({ name, url }: Pokemon) => {
     if (data) {
       const types: Type[] = [];
       data.types.map((t: any) => types.push(t.type.name));
-      console.log("DATA", data);
-
       const pokemon: PokemonDetails = {
         name: name,
         sprite: data.sprites.other.dream_world.front_default,

@@ -13,9 +13,9 @@ const Card = ({ details }: CardDetails) => {
         <Image
           src={details.sprite}
           alt="pokemon-image"
-          width={250}
-          height={250}
-          className="m-auto bg-gray-100"
+          width={300}
+          height={300}
+          className="m-auto bg-gray-100 "
         />
         <div className="text-xs mb-2">#{details.id}</div>
         <div className="font-serif font-medium tracking-wide">

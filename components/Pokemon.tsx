@@ -1,5 +1,8 @@
-import useFetchPokemon from "@/hooks/useFetch";
 import CardList from "./Card/CardList";
+import Loading from "./Loading";
+import { useContext } from "react";
+import { PokemonContext } from "@/context/context";
+import useData from "@/hooks/useData";
 
 interface IPokemon {
   name: string;
@@ -7,10 +10,10 @@ interface IPokemon {
 }
 
 const Pokemon = () => {
-  const { data, loading, error } = useFetchPokemon();
+  const { data, loading, error } = useData();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {

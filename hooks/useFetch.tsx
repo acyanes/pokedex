@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { PokemonClient } from 'pokenode-ts';
+import { useEffect, useState } from "react";
+import { PokemonClient } from "pokenode-ts";
 
 const api = new PokemonClient({
   cacheOptions: { maxAge: 15 * 60 * 1000, exclude: { query: true } },
@@ -8,7 +8,7 @@ const api = new PokemonClient({
 const useFetchPokemon = () => {
   const [data, setData] = useState<any>();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
     api

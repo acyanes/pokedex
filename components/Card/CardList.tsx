@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Type } from "@/utils/Types";
 import Card from "./Card";
+import Loading from "../Loading";
 
 export interface Pokemon {
   name: string;
@@ -32,6 +33,7 @@ const CardList = ({ name, url }: Pokemon) => {
     if (data) {
       const types: Type[] = [];
       data.types.map((t: any) => types.push(t.type.name));
+      console.log(data);
       const pokemon: PokemonDetails = {
         name: name,
         sprite: data.sprites.other.dream_world.front_default,
@@ -43,8 +45,8 @@ const CardList = ({ name, url }: Pokemon) => {
   }, [data]);
 
   return (
-    <div className="flex hover:animate-wiggle">
-      {details ? <Card details={details} /> : <div>Loading</div>}
+    <div className="flex hover:animate-wiggle m-8">
+      {details ? <Card details={details} /> : <Loading />}
     </div>
   );
 };

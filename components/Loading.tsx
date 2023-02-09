@@ -1,5 +1,7 @@
+import MoonLoader from "react-spinners/MoonLoader";
+
 const Loading = () => {
-  return <div>loading</div>;
+  return <MoonLoader color="#36d7b7" />;
 };
 
 export default Loading;

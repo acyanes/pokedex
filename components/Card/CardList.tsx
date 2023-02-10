@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
 import { Type } from "@/utils/Types";
 import Card from "./Card";
-import Loading from "../Loading";
 
 export interface Pokemon {
-  name: string;
-  url: string;
+  details: any;
 }
 
 export interface PokemonDetails {
@@ -15,38 +12,22 @@ export interface PokemonDetails {
   type?: Type[];
 }
 
-const CardList = ({ name, url }: Pokemon) => {
-  const [data, setData] = useState<any>();
-  const [details, setDetails] = useState<PokemonDetails>();
-
-  useEffect(() => {
-    if (data) {
-      return;
-    }
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => setData(data));
-  }, [data]);
-
-  useEffect(() => {
-    if (data) {
-      const types: Type[] = [];
-      data.types.map((t: any) => types.push(t.type.name));
-      console.log(data);
-      const pokemon: PokemonDetails = {
-        name: name,
-        sprite: data.sprites.other.dream_world.front_default,
-        id: data.id,
-        type: [...types],
-      };
-      setDetails(pokemon);
-    }
-  }, [data]);
-
+const CardList = ({ details }: Pokemon) => {
   return (
-    <div className="flex hover:animate-wiggle m-8">
-      {details ? <Card details={details} /> : <Loading />}
+    <div>
+      {details.map((detail: any) => {
+        const detailsObj = {
+          name: detail.name,
+          sprite: detail.sprites.other.dream_world.front_default,
+          id: detail.id,
+          types: detail.types,
+        };
+        return (
+          <div className="flex hover:animate-wiggle m-8">
+            <Card details={detailsObj} />
+          </div>
+        );
+      })}
     </div>
   );
 };

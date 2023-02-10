@@ -23,7 +23,7 @@ const Card = ({ details }: CardDetails) => {
         <div className="font-serif font-medium tracking-wide">
           {details.name.toUpperCase()}
         </div>
-        <TypesCard types={details?.type} />
+        <TypesCard types={details?.types} />
       </Link>
     </div>
   );

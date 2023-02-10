@@ -12,12 +12,10 @@ const PokemonPage = () => {
   // );
 
   const { data, loading, error } = useData();
-  console.log(data);
   // so have to filter each and look for the query.pokemon name
-  const details = data.filter(
-    (pokemon) => pokemon.name === (query.pokemon as string)
-  );
-  console.log(details);
+  // const details = data.filter(
+  //   (pokemon) => pokemon.name === (query.pokemon as string)
+  // );
 
   if (loading) return <Loading />;
   if (error) return null;

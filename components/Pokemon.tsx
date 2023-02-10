@@ -22,16 +22,7 @@ const Pokemon = () => {
 
   return (
     <div className="flex flex-wrap justify-center m-4">
-      {data &&
-        data.map((pokemon: IPokemon) => {
-          return (
-            <CardList
-              key={pokemon.name}
-              name={pokemon.name}
-              url={pokemon.url}
-            />
-          );
-        })}
+      {data && <CardList details={data} />}
     </div>
   );
 };

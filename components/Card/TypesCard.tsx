@@ -34,7 +34,7 @@ const TypesCard = ({ types }: Props) => {
           <li
             key={index}
             className={`${
-              color[types.type.name.toUpperCase()]
+              color[types[index].toUpperCase()]
             } list-none border-2 border-transparent rounded-md mr-1 w-[75px] text-center text-white font-extralight`}
           >
             {type}

@@ -9,6 +9,7 @@ export default function Home() {
         <title>Pokemon App</title>
       </Head>
       <main>
+        <Search />
         <Pokemon />
       </main>
     </>

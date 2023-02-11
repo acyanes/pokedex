@@ -14,7 +14,7 @@ export interface PokemonDetails {
 
 const CardList = ({ details }: Pokemon) => {
   return (
-    <div>
+    <div className="flex flex-wrap justify-center">
       {details.map((detail: any) => {
         const detailsObj = {
           name: detail.name,
@@ -23,7 +23,7 @@ const CardList = ({ details }: Pokemon) => {
           types: detail.types,
         };
         return (
-          <div className="flex hover:animate-wiggle m-8">
+          <div key={detailsObj.id} className="flex hover:animate-wiggle m-8">
             <Card details={detailsObj} />
           </div>
         );

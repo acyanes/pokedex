@@ -15,7 +15,6 @@ const PokemonPage = () => {
     if (data) {
       data.map((d: any) => {
         if (d.name === pokemon) {
-          console.log(d);
           const stats = {
             stats: d.stats,
             sprite: d.sprites.other.dream_world.front_default,

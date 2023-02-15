@@ -1,19 +1,16 @@
 import CardList from "./Card/CardList";
 import Loading from "./Loading";
-import { useContext } from "react";
-import { PokemonContext } from "@/context/context";
 import useData from "@/hooks/useData";
-
-interface IPokemon {
-  name: string;
-  url: string;
-}
 
 const Pokemon = () => {
   const { data, loading, error } = useData();
 
   if (loading) {
-    return <Loading />;
+    return (
+      <div className="flex justify-center">
+        <Loading />
+      </div>
+    );
   }
 
   if (error) {
